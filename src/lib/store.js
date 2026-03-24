@@ -30,6 +30,20 @@ export function addXP(amount) {
   return next
 }
 
+export function subtractXP(amount) {
+  const next = Math.max(0, getTotalXP() - amount)
+  localStorage.setItem(TOTAL_XP_KEY, String(next))
+  return next
+}
+
+export function undoTask(taskId) {
+  const state = getTodayState()
+  const xpEarned = state[taskId]?.xpEarned || 0
+  state[taskId] = { status: 'pending', snoozeCount: 0, xpEarned: 0 }
+  localStorage.setItem(todayKey(), JSON.stringify(state))
+  return xpEarned
+}
+
 export function getStreak() {
   try {
     return JSON.parse(localStorage.getItem(STREAK_KEY) || '{"count":0,"lastDate":null}')

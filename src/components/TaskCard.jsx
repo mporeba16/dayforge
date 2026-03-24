@@ -1,6 +1,6 @@
 import { calcXP } from '../lib/xp'
 
-export default function TaskCard({ task, state, onDone }) {
+export default function TaskCard({ task, state, onDone, onUndo }) {
   const { status = 'pending', snoozeCount = 0, xpEarned = 0 } = state
 
   const isDone = status === 'done'
@@ -57,12 +57,20 @@ export default function TaskCard({ task, state, onDone }) {
       </div>
 
       {/* Action */}
-      {!isDone && (
+      {!isDone ? (
         <button
           onClick={() => onDone(task.id)}
           className="flex-shrink-0 px-3 py-1.5 rounded-lg bg-green-700 hover:bg-green-600 text-white text-sm font-semibold transition-colors"
         >
           Done
+        </button>
+      ) : (
+        <button
+          onClick={() => onUndo(task.id)}
+          className="flex-shrink-0 px-2 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-500 hover:text-gray-300 text-xs transition-colors"
+          title="Undo"
+        >
+          ↩
         </button>
       )}
     </div>

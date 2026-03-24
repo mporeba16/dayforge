@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { TASKS } from './data/tasks'
-import { getTotalXP, getTaskState, updateTask, addXP, getStreak, checkAndUpdateStreak } from './lib/store'
+import { getTotalXP, getTaskState, updateTask, addXP, subtractXP, undoTask, getStreak, checkAndUpdateStreak } from './lib/store'
 import { calcXP, getPraise, getLevelInfo } from './lib/xp'
 import { requestPermission, registerSW, scheduleAll, listenForActions } from './lib/notifications'
 import XPBar from './components/XPBar'
@@ -49,6 +49,18 @@ export default function App() {
     refreshStates()
     setToast({ message: getPraise(), xp })
 
+    if (swReady) {
+      const updated = {}
+      TASKS.forEach(t => { updated[t.id] = getTaskState(t.id) })
+      scheduleAll(TASKS, updated)
+    }
+  }, [refreshStates, swReady])
+
+  const handleUndo = useCallback((taskId) => {
+    const xpToRemove = undoTask(taskId)
+    const newTotal = subtractXP(xpToRemove)
+    setTotalXP(newTotal)
+    refreshStates()
     if (swReady) {
       const updated = {}
       TASKS.forEach(t => { updated[t.id] = getTaskState(t.id) })
@@ -129,12 +141,15 @@ export default function App() {
               task={task}
               state={taskStates[task.id] || {}}
               onDone={handleDone}
+              onUndo={handleUndo}
             />
           ))}
         </div>
 
         <p className="text-center text-xs text-gray-600 pb-4">
           Add to Home Screen for Watch notifications
+          <br />
+          <span className="text-gray-700">v{__APP_VERSION__}</span>
         </p>
       </div>
 

@@ -8,6 +8,14 @@ export const TASKS = [
     message: 'Rise and shine! Time to conquer the day.',
   },
   {
+    id: 'bed',
+    label: 'Make Bed',
+    time: '07:05',
+    xp: 15,
+    emoji: '🛏️',
+    message: 'Start strong. Make that bed!',
+  },
+  {
     id: 'shower',
     label: 'Shower',
     time: '07:15',
@@ -54,13 +62,5 @@ export const TASKS = [
     xp: 25,
     emoji: '🧹',
     message: 'Clear space, clear mind. Quick tidy up!',
-  },
-  {
-    id: 'bed',
-    label: 'Make Bed',
-    time: '21:00',
-    xp: 15,
-    emoji: '🛏️',
-    message: 'End strong. Make that bed!',
   },
 ]
