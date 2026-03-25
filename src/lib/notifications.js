@@ -37,6 +37,19 @@ export function scheduleAll(tasks, todayState) {
   ctrl.postMessage({ type: 'SCHEDULE', schedule })
 }
 
+export function fireTestNotification() {
+  const ctrl = navigator.serviceWorker?.controller
+  if (!ctrl) return false
+  ctrl.postMessage({ type: 'TEST_NOTIFICATION' })
+  return true
+}
+
+export function scheduleSleepAlarm(wakeAt) {
+  const ctrl = navigator.serviceWorker?.controller
+  if (!ctrl) return
+  ctrl.postMessage({ type: 'SLEEP_ALARM', fireAt: wakeAt })
+}
+
 export function listenForActions(callback) {
   if (!('serviceWorker' in navigator)) return () => {}
   const handler = e => {
