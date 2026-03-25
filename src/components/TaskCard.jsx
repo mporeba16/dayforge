@@ -20,9 +20,8 @@ export default function TaskCard({ task, state, onDone, onUndo, onTimeEdit, onRe
   const [editingTime, setEditingTime] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
 
-  const isDone   = status === 'done'
-  const rel      = getRelativeTime(task.time)
-  const isOverdue = !isDone && rel.color === '#f59e0b' && !rel.pulse
+  const isDone = status === 'done'
+  const rel    = getRelativeTime(task.time)
 
   const [taskH, taskM] = task.time.split(':').map(Number)
   const taskDate = new Date(); taskDate.setHours(taskH, taskM, 0, 0)
@@ -66,7 +65,7 @@ export default function TaskCard({ task, state, onDone, onUndo, onTimeEdit, onRe
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
         style={{
-          background: isDone ? '#052e1630' : isNext ? '#f97316' + '18' : '#ffffff08',
+          background: isDone ? '#052e1630' : isNext ? '#f9731618' : '#ffffff08',
         }}
       >
         {isDone ? '✓' : task.emoji}
