@@ -26,12 +26,11 @@ function dayLabel(d, daysAgo) {
 }
 
 export default function HistoryView() {
-  const weekly = useMemo(getWeeklyStats, [])
-  const history = useMemo(getHistory, [])
+  const weekly = useMemo(() => getWeeklyStats(), [])
+  const history = useMemo(() => getHistory(), [])
 
   const maxXP = Math.max(...weekly.map(d => d.xp), 1)
   const totalWeekXP = weekly.reduce((s, d) => s + d.xp, 0)
-  const perfectDays = weekly.filter(d => d.done > 0 && d.xp === Math.max(...weekly.map(x => x.xp))).length
 
   return (
     <div className="space-y-5">

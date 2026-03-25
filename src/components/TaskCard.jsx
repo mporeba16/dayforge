@@ -25,7 +25,7 @@ export default function TaskCard({ task, state, onDone, onUndo, onTimeEdit, onRe
 
   const [taskH, taskM] = task.time.split(':').map(Number)
   const taskDate = new Date(); taskDate.setHours(taskH, taskM, 0, 0)
-  const isPast   = Date.now() > taskDate.getTime()
+  const isPast   = new Date() > taskDate
   const previewXP = calcXP(task, snoozeCount, !isPast)
 
   const handleTimeBlur = (e) => {
