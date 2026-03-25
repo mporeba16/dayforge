@@ -176,7 +176,7 @@ export default function App() {
   const { current } = getLevelInfo(totalXP)
 
   return (
-    <div className="min-h-screen" style={{ background: '#030712' }}>
+    <div className="min-h-screen" style={{ background: '#0f172a' }}>
       <div
         className="max-w-md mx-auto px-4 pt-10 pb-28 space-y-4"
         style={{ paddingBottom: 'calc(7rem + env(safe-area-inset-bottom))' }}
@@ -191,7 +191,7 @@ export default function App() {
           </div>
           <div
             className="text-xs font-semibold px-3 py-1.5 rounded-xl mt-1"
-            style={{ background: '#0d111a', border: '1px solid #1c2430', color: allDone ? '#4ade80' : '#6b7280' }}
+            style={{ background: '#1e293b', border: '1px solid #334155', color: allDone ? '#4ade80' : '#6b7280' }}
           >
             {done}/{total} zadań
           </div>
@@ -207,7 +207,7 @@ export default function App() {
                 onClick={handleEnableNotifications}
                 className="w-full py-3 rounded-2xl text-sm font-medium transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                 style={{
-                  background: '#1a0900',
+                  background: '#271100',
                   border: '1px solid rgba(234,88,12,0.3)',
                   color: '#fb923c',
                 }}
@@ -226,7 +226,7 @@ export default function App() {
                   {total > 0 ? Math.round((done / total) * 100) : 0}%
                 </span>
               </div>
-              <div className="w-full rounded-full h-1 overflow-hidden" style={{ background: '#0d111a' }}>
+              <div className="w-full rounded-full h-1 overflow-hidden" style={{ background: '#1e293b' }}>
                 <div
                   className="h-1 rounded-full"
                   style={{
@@ -293,9 +293,9 @@ export default function App() {
         <div
           className="max-w-md mx-auto"
           style={{
-            background: 'rgba(3,7,18,0.92)',
+            background: 'rgba(15,23,42,0.95)',
             backdropFilter: 'blur(20px)',
-            borderTop: '1px solid #1c2430',
+            borderTop: '1px solid #334155',
           }}
         >
           <div className="flex">

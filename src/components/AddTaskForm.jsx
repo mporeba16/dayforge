@@ -45,7 +45,7 @@ export default function AddTaskForm({ onAdd, onTestNow }) {
         <button
           onClick={() => setOpen(true)}
           className="w-full py-3 rounded-2xl text-sm font-medium transition-all text-gray-600 hover:text-gray-400 flex items-center justify-center gap-2"
-          style={{ border: '1px dashed #1c2430' }}
+          style={{ border: '1px dashed #334155' }}
         >
           <span className="text-base leading-none">+</span>
           Dodaj własne zadanie
@@ -53,7 +53,7 @@ export default function AddTaskForm({ onAdd, onTestNow }) {
       ) : (
         <div
           className="rounded-2xl p-4 space-y-3"
-          style={{ background: '#0d111a', border: '1px solid #1c2430', animation: 'fadeIn 0.2s ease' }}
+          style={{ background: '#1e293b', border: '1px solid #334155', animation: 'fadeIn 0.2s ease' }}
         >
           <div className="flex items-center justify-between">
             <span className="font-semibold text-white text-sm">Nowe zadanie</span>
@@ -74,7 +74,7 @@ export default function AddTaskForm({ onAdd, onTestNow }) {
                 className="w-9 h-9 rounded-xl text-lg flex items-center justify-center transition-all"
                 style={{
                   background: emoji === e ? '#ea580c' : '#ffffff08',
-                  border: emoji === e ? '1px solid transparent' : '1px solid #1c2430',
+                  border: emoji === e ? '1px solid transparent' : '1px solid #334155',
                   transform: emoji === e ? 'scale(1.1)' : 'scale(1)',
                 }}
               >{e}</button>
@@ -88,11 +88,11 @@ export default function AddTaskForm({ onAdd, onTestNow }) {
             value={label}
             onChange={e => setLabel(e.target.value)}
             className="w-full rounded-xl px-3 py-2.5 text-sm text-white placeholder-gray-700 focus:outline-none"
-            style={{ background: '#ffffff08', border: '1px solid #1c2430' }}
+            style={{ background: '#ffffff08', border: '1px solid #334155' }}
             autoFocus
             maxLength={40}
             onFocus={e => e.target.style.borderColor = '#ea580c'}
-            onBlur={e => e.target.style.borderColor = '#1c2430'}
+            onBlur={e => e.target.style.borderColor = '#334155'}
           />
 
           {/* Time + XP row */}
@@ -104,7 +104,7 @@ export default function AddTaskForm({ onAdd, onTestNow }) {
                 value={time}
                 onChange={e => setTime(e.target.value)}
                 className="flex-1 rounded-xl px-3 py-2 text-sm text-white focus:outline-none"
-                style={{ background: '#ffffff08', border: '1px solid #1c2430' }}
+                style={{ background: '#ffffff08', border: '1px solid #334155' }}
                 required
               />
             </div>

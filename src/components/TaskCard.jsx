@@ -40,32 +40,33 @@ export default function TaskCard({ task, state, onDone, onUndo, onTimeEdit, onRe
 
   return (
     <div
-      className="relative rounded-2xl p-4 flex items-center gap-3 transition-all duration-300"
+      className="relative rounded-2xl p-4 flex items-center gap-3 transition-all duration-300 overflow-hidden"
       style={{
         background: isDone
-          ? '#0d111a'
+          ? '#1e293b'
           : isNext
-          ? 'linear-gradient(135deg, #1a120000, #1a1200)'
-          : '#0d111a',
+          ? 'linear-gradient(to bottom, #2d1500, #1e293b)'
+          : '#1e293b',
         border: isDone
-          ? '1px solid #1c2430'
+          ? '1px solid #334155'
           : isNext
-          ? '1px solid rgba(249,115,22,0.45)'
-          : '1px solid #1c2430',
-        opacity: isDone ? 0.45 : 1,
-        boxShadow: isNext ? '0 0 20px rgba(249,115,22,0.06)' : 'none',
+          ? '1px solid rgba(249,115,22,0.5)'
+          : '1px solid #334155',
+        opacity: isDone ? 0.5 : 1,
+        boxShadow: isNext ? '0 -2px 12px rgba(249,115,22,0.15), 0 4px 16px rgba(0,0,0,0.3)' : '0 2px 8px rgba(0,0,0,0.2)',
       }}
     >
-      {/* Left accent line for next task */}
+      {/* Top accent glow for next task */}
       {isNext && !isDone && (
-        <div className="absolute left-0 top-3 bottom-3 w-0.5 rounded-r-full bg-orange-500" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-orange-500"
+             style={{ boxShadow: '0 0 8px rgba(249,115,22,0.8)' }} />
       )}
 
       {/* Emoji circle */}
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
         style={{
-          background: isDone ? '#052e1630' : isNext ? '#f9731618' : '#ffffff08',
+          background: isDone ? '#ffffff0a' : isNext ? '#f9731620' : '#ffffff10',
         }}
       >
         {isDone ? '✓' : task.emoji}

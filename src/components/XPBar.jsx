@@ -33,7 +33,7 @@ export default function XPBar({ totalXP, streak }) {
       </div>
 
       {/* Progress bar with shimmer */}
-      <div className="w-full bg-black/30 rounded-full h-2 overflow-hidden">
+      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
         <div
           className="h-2 rounded-full"
           style={{
@@ -49,7 +49,7 @@ export default function XPBar({ totalXP, streak }) {
       {next && (
         <div className="flex justify-between mt-1.5 text-xs">
           <span style={{ color: `${current.color}80` }}>{Math.round(progress)}%</span>
-          <span className="text-gray-600">{(next.minXP - totalXP).toLocaleString('pl-PL')} XP → {next.name}</span>
+          <span className="text-slate-500">{(next.minXP - totalXP).toLocaleString('pl-PL')} XP → {next.name}</span>
         </div>
       )}
     </div>

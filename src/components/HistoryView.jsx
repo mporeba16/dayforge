@@ -36,7 +36,7 @@ export default function HistoryView() {
   return (
     <div className="space-y-5">
       {/* Weekly bar chart */}
-      <div className="rounded-xl p-4 bg-gray-900 border border-gray-800">
+      <div className="rounded-xl p-4 bg-slate-800 border border-slate-700">
         <div className="flex items-baseline justify-between mb-3">
           <span className="text-sm font-semibold text-white">Ostatnie 7 dni</span>
           <span className="text-xs text-gray-500">+{totalWeekXP} XP łącznie</span>
@@ -53,7 +53,7 @@ export default function HistoryView() {
                       ? '#f59e0b'
                       : day.xp > 0
                       ? '#10b981'
-                      : '#1f2937',
+                      : '#334155',
                     opacity: day.isToday ? 1 : 0.7,
                   }}
                 />
@@ -79,7 +79,7 @@ export default function HistoryView() {
       ) : (
         <div className="space-y-2">
           {history.map(day => (
-            <div key={day.date} className="rounded-xl p-4 bg-gray-900 border border-gray-800">
+            <div key={day.date} className="rounded-xl p-4 bg-slate-800 border border-slate-700">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-semibold text-white">{formatDate(day.date)}</div>
@@ -107,7 +107,7 @@ export default function HistoryView() {
                     style={{
                       background: i < day.doneCount
                         ? completionColor(day.doneCount, day.totalTasks)
-                        : '#1f2937',
+                        : '#334155',
                     }}
                   />
                 ))}

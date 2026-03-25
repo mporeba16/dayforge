@@ -22,7 +22,7 @@ export default function SleepWidget({ swReady }) {
       <div
         className="rounded-2xl p-4 flex items-center justify-between"
         style={{
-          background: 'linear-gradient(135deg, #0c0a1e, #13111f)',
+          background: 'linear-gradient(135deg, #1a1635, #221e3a)',
           border: '1px solid rgba(139,92,246,0.2)',
         }}
       >
@@ -54,7 +54,7 @@ export default function SleepWidget({ swReady }) {
       onClick={handleSleep}
       className="w-full py-3.5 rounded-2xl font-semibold transition-all active:scale-[0.98] flex items-center justify-center gap-2.5 text-sm"
       style={{
-        background: 'linear-gradient(135deg, #0c0a1e, #13111f)',
+        background: 'linear-gradient(135deg, #1a1635, #221e3a)',
         border: '1px solid rgba(139,92,246,0.2)',
         color: '#a78bfa',
       }}
